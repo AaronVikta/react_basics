@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
 
-function App() {
+function Button(props) {
+  const handleClick= ()=>props.onClickFunction(props.increment)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <button onClick={handleClick}>
+       +{props.increment}
+    </button>
   );
 }
+//Display component
+function Display(props){
+  return (
+    <div>
+      {props.message}
+    </div>
+  )
+}
+ function App(){
+   const [counter, setCounter]= useState(42);
+   const incrementCounter =(
+     incrementValue)=>setCounter(counter+incrementValue
+     );
+   return (
+     <div>
+      <Button onClickFunction = {incrementCounter} increment={1}/>
+      <Button onClickFunction = {incrementCounter} increment={5}/>
+      <Button onClickFunction = {incrementCounter} increment={10}/>
+      <Button onClickFunction = {incrementCounter} increment={100}/>
+      <Display message={counter}/>
+     </div>
+   )
+ }
 
 export default App;
+// function App() {
+//   const [counter, setCounter]= useState(5);
+//   return (
+//     <button onClick={()=>setCounter(counter*2)}>{counter}</button>
+//   );
+// }
