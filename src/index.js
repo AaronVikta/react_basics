@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import GitApp from './App';
+import Card from './GitCard';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GitApp title="GitHub Cards App"/>
+    <Card/>
   </React.StrictMode>,
   document.getElementById('root')
 );
